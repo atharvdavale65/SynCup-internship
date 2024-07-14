@@ -1,0 +1,148 @@
+{
+    "intents": [
+        {
+            "name": "AboutPTasks",
+            "training_phrases": [
+                "What is PTasks?",
+                "Tell me about PTasks",
+                "PTasks?",
+                "What is PTasks"
+            ],
+            "response": "PTasks is a task management system created by POSIT SOURCE Technologies interns."
+        },
+        {
+            "name": "PTasksPurpose",
+            "training_phrases": [
+                "Why PTasks?",
+                "What is the purpose of PTasks?",
+                "PTasks purpose",
+                "purpose",
+                "PTasks features"
+            ],
+            "response": "PTasks is essential for managing your tasks effectively. It helps you stay organized, meet deadlines, and improve productivity and efficiency."
+        },
+        {
+            "name": "PTasksProcedure",
+            "training_phrases": [
+                "procedure of board?",
+                "what is the process",
+                "procedure?",
+                "what is the procedure",
+                "how to see the board"
+            ],
+            "response": "To assign tasks in the system, you can follow these steps: 1. **Login to Your Account:** - You can log in using your Google account or sign up if you are a new user. If you are an admin, use your admin credentials. 2. **Access board Assignment:** - Once logged in, navigate to Boards section. Admins have the authority to assign boards to employees. 3. **Assign a board:** - Select the employee you want to assign the board to and provide board details such as color, category, and cards. 4. **View Assigned Tasks:** - Employees can view their assigned tasks on personalized boards. Admins can monitor the assigned tasks for all employees. 5. **Explore Boards and Categories:** - Boards categorize tasks based on different types. Each board contains various categories, and each category houses individual tasks (cards). 6. **Access Task Details:** - Click on a card to access detailed information about the task, including its status, due date, and any comments. That's it!"
+        },
+        {
+            "name": "CardDetails",
+            "training_phrases": [
+                "process of assigning card?",
+                "process of viewing card?",
+                "procedure of adding card?",
+                "how to add card"
+            ],
+            "response": "Once assigned to a board by an admin or a special member, users can add cards to the board based on predefined categories. To do this, users navigate to the boards section and select the specific board where they wish to add cards. Upon selecting the board, they are redirected to a list view where they can add lists. After adding a list, users can further add cards to the list, organized according to the relevant category."
+        },
+        {
+            "name": "AboutRoadmap",
+            "training_phrases": [
+                "what is roadmap",
+                "why is roadmap here",
+                "what is the purpose of roadmap",
+                "what about roadmap"
+            ],
+            "response": "In PTasks, a roadmap serves as a strategic plan or a visual representation of the planned development path for the product or project. The purpose of a roadmap is to provide  team members ,employees and lead with a clear understanding of the planned features, milestones, and overall direction of the task management system"
+        },
+        {
+            "name": "AboutFilter",
+            "training_phrases": [
+                "what is filter",
+                "what is the purpose of filer",
+                "use of filter",
+                " features of filter"
+            ],
+            "response": "In the filtering feature, users can filter cards based on various criteria, such as the members who created the card, its title, assigned labels, presence of a due date, and whether the card is marked as completed or not. When users click on the 'Filter' option, a set of filtering operations will be displayed, allowing them to refine their view of cards based on specific attributes."
+        },
+        {
+            "name": "AboutNotification",
+            "training_phrases": [
+                "what is notification",
+                "purpose of notification",
+                "use of notification",
+                "notification?"
+            ],
+            "response": "A notification is a feature used to inform users about updates, such as comments on their cards, profile updates, card or board deletions, changes in categories, or assignments to new boards or cards."
+        },
+        {
+            "name": "AboutTeam",
+            "training_phrases": [
+                "what is team",
+                "what about team",
+                "purpose of team",
+                "team means?",
+                "teams?"
+            ],
+            "response": "A team is a collective of employees, comprising your colleagues, with whom you collaborate on specific tasks. It serves as a platform for communication and discussion, enabling you to interact with your colleagues in the pursuit of shared objectives."
+        },
+        {
+            "name": "AboutReport",
+            "training_phrases": [
+                "what is report",
+                "what about report",
+                "report means?",
+                "report?"
+            ],
+            "response": "A report essentially represents your performance metrics, illustrating your contributions to the project. It includes details such as the number of cards, backlogs, work in progress (WIP), completed tasks, and more, providing a comprehensive overview of your project involvement."
+        },
+        {
+            "name": "AboutBoards",
+            "training_phrases": [
+                "what is board",
+                "what about board",
+                "board means?",
+                "board?"
+            ],
+            "response": "Boards are the foundation of our platform, where users can create and manage their tasks. Each board serves as a workspace, accommodating multiple categories. Categories, in turn, house individual cards representing specific tasks. Upon clicking on a created board, users are directed to a dashboard. In the dashboard, they can view the names of their boards and have the flexibility to add lists for organizing tasks efficiently. The intuitive design facilitates seamless task management and collaboration within each designated board."
+        },
+        {
+            "name": "AboutProfile",
+            "training_phrases": [
+                "where can I update my profile",
+                "change phone number",
+                "update password",
+                "change password",
+                "phone number update",
+                "forgot password"
+            ],
+            "response": "In the top right corner of your dashboard, click on your profile photo. Then, select the 'Profile' option. Here, you can update or change your profile picture, password, name, phone number, and other details."
+        },
+        {
+            "name": "AboutBackup",
+            "training_phrases": [
+                "Do we have any backup",
+                "What if we lost the cards",
+                "what if we delete a card or boards?",
+                "what if we lost something from system"
+            ],
+            "response": "We do not have any backups as of now.If we delete something, it will get deleted from database also. But we will definitely plan to have a backup if our server gets crashed."
+        },
+        {
+            "name": "AboutLabels",
+            "training_phrases": [
+                "What is label",
+                "Why use label",
+                "what is label management"
+            ],
+            "response": "In our card system, we utilize labels to distinguish whether a card is important, useful, or anything else. These labels are accompanied by colors for easy identification. Additionally, our system allows users to search for cards based on their labels, making it convenient to find cards of a particular category. This feature aids in prioritizing cards based on their labels."
+        },
+        {
+            "name": "AdditionalAcknowledgment",
+            "training_phrases": [
+                "ok",
+                "fine",
+                "got it",
+                "thank you"
+            ],
+            "response": "I am glad to hear it. If you have any more questions or if there's anything else I can help you with, feel free to ask."
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+.customized-menu {
+  margin-top: 180px !important;
+  height: 90vh !important;
+}
+.css-1p823my-MuiListItem-root {
+  padding-left: 7px;
+}
+
+.customized-menu-small {
+  margin-top: 50px !important;
+  height: 95vh !important;
+  width: 90vw !important;
+}
+@media (min-width: 617px) and (max-width: 900px) {
+  .customized-menu {
+    margin-top: 35px !important;
+  }
+
+}
+@media (min-width: 617px) and (max-width: 1045px) {
+  .serachbar{
+    max-width: fit-content !important;
+  }
+  
+}
+.css-41zplb-MuiFormLabel-root-MuiInputLabel-root {
+  z-index: 1 !important;
+}

@@ -1,0 +1,210 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["relationJoins"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  email    String    @unique
+  name     String
+  password String?
+  task     Task?     @relation(fields: [taskId], references: [id])
+  taskId   Int?
+  organizations  Organization[] @relation("UserOrganization")
+  cards    Card[]    @relation("UserToCard")
+  boards   Board[]   @relation("UserToBoard")
+  photo    String?
+  imageName String?
+  phone    String?
+  role     Role      @default(User)
+  team      Team[]   @relation("TeamMembers")
+  comments Comment[]
+  notifications Notification[]
+  userOrganizations UserOrganization[]
+  order Int @default(autoincrement())
+  @@index([email])
+}
+
+model Task {
+  id        Int      @id @default(autoincrement())
+  user      User[]
+  category  String?
+  color     String?
+  createdAt DateTime @default(now())
+  dueDate   DateTime @default(now())
+  order     Int      @default(autoincrement())
+  cards     Card[]
+  boardId   Int?
+  board     Board?   @relation(fields: [boardId], references: [id])
+  @@index([order,boardId])
+}
+
+model Card {
+  id            Int          @id @default(autoincrement())
+  name          String
+  description   String?
+  order         Int          @default(autoincrement())
+  photo         String?
+  createdAt     DateTime     @default(now())
+  dueDate       DateTime     @default(now())
+  attachments   Attachment[]
+  comments      Comment[]
+  taskId        Int
+  task          Task         @relation(fields: [taskId], references: [id])
+  isCompleted   Boolean      @default(false)
+  assignedUsers User[]       @relation("UserToCard")
+  label         Label[]      @relation("LabelToCard")
+  priority      Priority     @default(medium) 
+  status        Status       @default(active)
+  release       Release      @default(UNRELEASED)
+  version       Version?      @relation(fields: [versionId],references: [id])
+  versionId     Int?
+  @@index([taskId])
+}
+
+model Comment {
+  id          Int      @id @default(autoincrement())
+  description String
+  createdAt   DateTime @default(now())
+  card        Card?    @relation(fields: [cardId], references: [id])
+  cardId      Int?
+  user        User?    @relation(fields: [userId], references: [id])
+  userId      Int?
+  @@index([cardId])
+}
+
+model Attachment {
+  id     Int   @id @default(autoincrement())
+  card   Card? @relation(fields: [cardId], references: [id])
+  cardId Int?
+  file   String
+  name   String
+  time   DateTime @default(now())
+}
+
+model Board {
+  id         Int        @id @default(autoincrement())
+  name       String
+  background String?
+  visibility Visibility
+  tasks      Task[]
+  labels     Label[]
+  users      User[]     @relation("UserToBoard")
+  team      Team[]     @relation("TeamBoard")
+  organization   Organization?   @relation(fields: [organizationId], references: [id])
+  organizationId Int ?
+  @@index([id,visibility])
+}
+
+enum Release {
+  RELEASED
+  UNRELEASED
+}
+
+enum Visibility {
+  PUBLIC
+  PRIVATE
+}
+
+enum Role {
+  SuperAdmin
+  Admin
+  User
+}
+
+enum Priority {
+  highest
+  high
+  medium
+  low
+  lowest
+}
+enum Status {
+  active
+  archived
+}
+
+
+model Label {
+  id    String @id @default(uuid())
+  name  String
+  color String
+  board   Board   @relation(fields: [boardId], references: [id])
+  boardId Int 
+  cards Card[] @relation("LabelToCard")
+   order Int @default(autoincrement())
+}
+
+model Notification {
+  id        Int             @id @default(autoincrement())
+  author    String
+  event     NotificationEvent
+  createdAt DateTime        @default(now())
+  users     User[]  
+  details   String?   
+  status    NotificationStatus @default(UNREAD)    
+
+}
+
+enum NotificationStatus {
+  READ
+  UNREAD
+}
+
+enum NotificationEvent {
+  CARD_CREATED
+  CARD_DELETED
+  CATEGORY_CREATED
+  BOARD_CREATED
+  BOARD_DELETED
+  BOARD_UPDATED
+}
+
+model Feedback {
+id Int @id @default(autoincrement())
+feedback String
+createdAt DateTime @default(now())
+}
+model Organization{
+  id           Int     @id@default(autoincrement())
+  name        String    @unique
+  type        String
+  description String
+  profile      String
+  boards      Board[]
+  users      User[]    @relation("UserOrganization")
+  userOrganizations UserOrganization[]
+}
+
+model Team {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  members     User[]   @relation("TeamMembers")
+  createdAt   DateTime @default(now())
+  boards      Board[]  @relation("TeamBoard")
+  @@index([id])
+}
+model UserOrganization {
+  user         User       @relation(fields: [email], references: [email])
+  email       String
+  organization Organization @relation(fields: [organizationName], references: [name])
+  organizationName String
+  role         Role       @default(User)  
+
+  @@id([email, organizationName])
+}
+model Version {
+  id          Int       @id @default(autoincrement())
+  name        String
+  status      Release   @default(UNRELEASED)
+  startDate   DateTime  @default(now())
+  releaseDate DateTime?
+  description String?
+  card        Card[]
+}

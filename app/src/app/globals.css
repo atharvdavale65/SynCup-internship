@@ -1,0 +1,106 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
+.wrapper{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: white;
+    max-height: 90vh;
+    width: 40vw;
+    border-radius: 10px;
+    padding :20px;
+}
+.dark.rdrDay{
+  color:white !important;
+}
+
+@media screen and (min-width: 768px) {
+  .crd-height {
+    max-height: 25vh;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .crd-height {
+    max-height: 45vh;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .crd-height {
+    max-height: 55vh; 
+  }
+}
+
+@media screen and (min-width: 1536px) {
+  .crd-height {
+    max-height: 60vh;
+  }
+}
+
+@media screen and (min-width: 1736px) {
+  .crd-height {
+    max-height: 66vh;
+  }
+}
+
+@media screen and (min-width: 1936px) {
+  .crd-height {
+    max-height: 70vh;
+  }
+}
+
+@media screen and (min-width: 2136px) {
+  .crd-height {
+    max-height: 75vh;
+  }
+}
+
+@media screen and (min-width: 2336px) {
+  .crd-height {
+    max-height: 80vh;
+  }
+}
+
+@media screen and (min-width: 2336px) {
+  .crd-height {
+    max-height: 80vh;
+  }
+}
+
+@media screen and (min-width: 2536px) {
+  .crd-height {
+    max-height: 80vh;
+  }
+}
+
+.rounded-medium{
+  border-radius: 0.3rem;
+}
+.rounded-large{
+  border-radius: 0.3rem;
+}
+.rounded-small{
+  border-radius: 0.3rem;
+}
